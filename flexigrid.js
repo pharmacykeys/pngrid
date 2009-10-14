@@ -26,7 +26,7 @@
 			 resizable: true, //resizable table
 			 url: false, //ajax url
 			 method: 'POST', // data sending method
-			 dataType: 'xml', // type of data loaded
+			 dataType: 'json', // type of data loaded
 			 errormsg: 'Connection Error',
 			 usepager: false, //
 			 nowrap: true, //
@@ -42,14 +42,16 @@
 			 qtype: '',
 			 nomsg: 'No items',
 			 minColToggle: 1, //minimum allowed column to be hidden
-			 showToggleBtn: true, //show or hide column toggle popup
+			 showToggleBtn: false, //show or hide column toggle popup
 			 hideOnSubmit: true,
 			 autoload: true,
 			 blockOpacity: 0.5,
 			 onToggleCol: false,
 			 onChangeSort: false,
 			 onSuccess: false,
-			 onSubmit: false // using a custom populate function
+			 onSubmit: false, // using a custom populate function
+			 
+			 allowColumnResize: true
 		  }, p);
 		  		
 
@@ -116,10 +118,9 @@
 					$(g.rDiv).css({height: hrH});
 				
 			},
-			dragStart: function (dragtype,e,obj) { //default drag function start
-				
-				if (dragtype=='colresize') //column resize
-					{
+			dragStart: function (dragtype,e,obj) { //default drag function start				
+				if (dragtype=='colresize' && p.allowColumnResize) //column resize
+				{
 						$(g.nDiv).hide();$(g.nBtn).hide();
 						var n = $('div',this.cDrag).index(obj);
 						var ow = $('th:visible div:eq('+n+')',this.hDiv).width();
@@ -791,6 +792,9 @@
 				{
 					var cm = p.colModel[i];
 					var th = document.createElement('th');
+					
+					if (cm.align)
+					   $(th).css('text-align', cm.align);
 
 					th.innerHTML = cm.display;
 					
@@ -1224,7 +1228,7 @@
 		// add title
 		if (p.title)
 		{
-			g.mDiv.className = 'mDiv';
+			g.mDiv.className = 'mDiv grid-header';
 			g.mDiv.innerHTML = '<div class="ftitle">'+p.title+'</div>';
 			$(g.gDiv).prepend(g.mDiv);
 			if (p.showTableToggleBtn)
