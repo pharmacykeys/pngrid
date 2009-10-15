@@ -3,11 +3,12 @@
 
 .flexigrid
 	{
-	font-family: Arial, Helvetica, sans-serif;
 	position: relative;
 	overflow: hidden;
 	color: #000;
 	font-size: 13px;
+	margin-left: 1px;
+	margin-right: 1px;
 	}
 
 	.flexigrid.hideBody
@@ -42,8 +43,26 @@
 .flexigrid div.hDivBox
 	{
 	float: left; 
-	padding-right: 40px;
 	}
+
+.flexigrid div.hDiv table th {
+    text-transform: uppercase;
+    border-bottom: 1px solid #abd8e5;
+}
+
+.flexigrid div.hDiv table tr.grouped-head th {
+    background: #0f96be;
+    color: white;
+    text-align: center;
+}
+
+.flexigrid div.hDiv table tr.sub-head th {
+    color: #047da2;
+}
+
+.flexigrid .bDiv {
+    width: 676px;
+}
 
 .flexigrid div.bDiv table
 	{
@@ -255,23 +274,24 @@
 			border-top: 1px solid #fff;
 			border-right: 1px solid #eee;
 			border-bottom: 1px solid #eee;
-		}		
+		}
 		
 	
 /* end toolbar*/
 
 .flexigrid div.hDiv
 	{
-	background: #fafafa url(images/fhbg.gif) repeat-x bottom;
 	position: relative;
-	border: 1px solid #ccc;
-	border-bottom: 0px;
+	border-top: 1px solid #0f96be;
 	overflow: hidden;
+	text-transform: uppercase;
+	font-size: 11px;
+	width: 675px;
 	}	
 
 .flexigrid div.hDiv table
 	{
-	border-right: 1px solid #fff;
+	
 	}
 
 	.flexigrid div.cDrag
@@ -289,7 +309,7 @@
 			display: block;
 			position: absolute;
 			height: 24px;
-			width: 5px;
+			width: 1px;
 			/*cursor: col-resize;*/
 			}
 			
@@ -324,7 +344,6 @@
 					
 .flexigrid div.bDiv
 	{
-	border-bottom: 2px solid #008bb6;
 	border-top: 0px;
 	background: #fff;
 	overflow: auto;
@@ -333,8 +352,7 @@
 	
 .flexigrid div.bDiv table
 	{
-	border-bottom: 1px solid #ccc;
-	}
+		}
 	
 	.flexigrid div.hGrip
 	{
@@ -381,10 +399,10 @@
 .flexigrid div.hDiv th, .flexigrid  div.bDiv td  /* common cell properties*/
 	{
 	text-align: left;
-	border-right: 1px solid #ddd;
+	border-right: 1px solid #abd8e5;
 	border-left: 1px solid #fff;
 	overflow: hidden;
-	vertical-align: top !important;
+	vertical-align: middle !important;
 	}
 
 		.flexigrid div.hDiv th div, .flexigrid  div.bDiv td  div, div.colCopy div/* common inner cell properties*/
@@ -462,9 +480,10 @@ div.colCopy {
 		
 .flexigrid div.bDiv td
 	{
-	border-bottom: 1px solid #fff;
 	vertical-align: top;
 	white-space: nowrap;
+	padding: 4px 0;
+	cursor: default;
 	}
 
 		.flexigrid div.hDiv th div
@@ -507,7 +526,6 @@ div.colCopy {
 				{
 				background: #f3f3f3;
 				border-right: 1px solid #ddd;
-				border-bottom: 1px solid #f3f3f3;
 				}		
 
 				.flexigrid tr td.sorted div
@@ -517,14 +535,12 @@ div.colCopy {
 
 		.flexigrid tr.erow td
 				{
-				background: #f7f7f7;
-				border-bottom: 1px solid #f7f7f7;
+				background: #f5f9fa;
 				}
 				
 		.flexigrid tr.erow td.sorted
 				{
 				background: #e3e3e3;
-				border-bottom: 1px solid #e3e3e3;
 				}						
 
 				.flexigrid tr.erow td.sorted div
@@ -536,9 +552,7 @@ div.colCopy {
 		.flexigrid div.bDiv tr.trOver td.sorted, 
 		.flexigrid div.bDiv tr.trOver td
 			{
-			background: #d9ebf5;
-			border-left: 1px solid #eef8ff;
-			border-bottom: 1px dotted #a8d8eb;
+			background: #edffe1;
 			}
 					
 		.flexigrid div.bDiv tr.trSelected:hover td, 
@@ -548,18 +562,14 @@ div.colCopy {
 		.flexigrid tr.trSelected td.sorted, 
 		.flexigrid tr.trSelected td
 			{
-			background: #d5effc url(images/hl.png) repeat-x top;
-			border-right: 1px solid #d2e3ec;
-			border-left: 1px solid #eef8ff;
-			border-bottom: 1px solid #a8d8eb;
+			 background: #ffeee1;
 			}
 
 	/* novstripe adjustments */
 
 	.flexigrid.novstripe .bDiv table
 	{
-		border-bottom: 1px solid #ccc;
-		border-right: 1px solid #ccc;
+
 	}
 
 	.flexigrid.novstripe  div.bDiv td  

@@ -787,14 +787,12 @@
 		{
 			thead = document.createElement('thead');
 			tr = document.createElement('tr');
+			tr.className = 'sub-head';
 			
 			for (i=0;i<p.colModel.length;i++)
 				{
 					var cm = p.colModel[i];
 					var th = document.createElement('th');
-					
-					if (cm.align)
-					   $(th).css('text-align', cm.align);
 
 					th.innerHTML = cm.display;
 					
@@ -846,6 +844,7 @@
 
 		//set gDiv
 		g.gDiv.className = 'flexigrid';
+		g.gDiv.id = p.id || '';
 		if (p.width!='auto') g.gDiv.style.width = p.width + 'px';
 
 		//add conditional classes
